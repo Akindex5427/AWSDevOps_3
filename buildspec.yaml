@@ -1,0 +1,20 @@
+# Buildspec file version: 0.2 to install apache httpd webserver Ubuntu as OS
+
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      python: 3.7
+    commands:
+      - sudo apt-get update
+      - sudo apt-get install apache2 -y
+
+  post_build:
+    commands:
+      - echo "Build completed on `date`"
+      - cp ./* /usr/local/apache2/htdocs/
+
+artifacts:
+  files:
+    - "**/*"

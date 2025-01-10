@@ -1,0 +1,16 @@
+# Appspec file version: 0.2 to install httpd webserver Ubuntu as OS
+
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /usr/local/apache2/htdocs/
+hooks:
+  AfterInstall:
+    - location: install_server.sh
+      timeout: 300
+      runas: root
+  ApplicationStart:
+    - location: start_server.sh
+      timeout: 300
+      runas: root
