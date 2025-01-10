@@ -13,7 +13,7 @@ phases:
   build:
     commands:
       - echo Build started on date
-      - cp -r ./* /usr/local/apache2/htdocs
+      - sudo cp -r ./* /var/www/html
   post_build:
     commands:
        - echo Configuring APACHE
