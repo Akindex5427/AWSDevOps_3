@@ -7,14 +7,16 @@ phases:
     runtime-versions:
       python: 3.7
     commands:
+      - echo install APACHE - echo apt-get install APACHE
       - sudo apt-get update
       - sudo apt-get install apache2 -y
-
+  build:
+    commands:
+      - echo Build started on date
+      - cp -r ./* /usr/local/apache2/htdocs
   post_build:
     commands:
-      - echo "Build completed on `date`"
-      - cp ./* /usr/local/apache2/htdocs/
-
+       - echo Configuring APACHE
 artifacts:
   files:
     - "**/*"
